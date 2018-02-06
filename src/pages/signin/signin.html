@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sign In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item no-lines>
+    <ion-icon name="chatboxes" color='primary' class="person-icon"></ion-icon>
+  </ion-item>
+
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
+
+
+    <ion-item>
+      <ion-icon name="mail" item-left color='primary'></ion-icon>
+      <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock" item-left color='primary'></ion-icon>
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button full [disabled]="signinForm.invalid">Enter</button>
+  </form>
+  <button ion-button full clear text-center (click)="onSignup()">Sign Up</button>
+</ion-content>
