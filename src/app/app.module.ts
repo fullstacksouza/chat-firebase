@@ -18,6 +18,8 @@ import { CustomLoggedHeaderComponent } from '../components/custom-logged-header/
 import {CapitalizePipe} from '../pipes/capitalize/capitalize'
 import { ChatPage } from '../pages/chat/chat';
 import { ChatServiceProvider } from '../providers/chat-service/chat-service';
+import { MessageServiceProvider } from '../providers/message-service/message-service';
+import { MessageBoxComponent } from '../components/message-box/message-box-component';
 
 
 const firebaseAppConfig:FirebaseAppConfig = {
@@ -36,6 +38,7 @@ const firebaseAuthConfig =
   declarations: [
     CapitalizePipe,
     CustomLoggedHeaderComponent,
+    MessageBoxComponent,
     HomePage,
     MyApp,
     SignupPage,
@@ -62,7 +65,8 @@ const firebaseAuthConfig =
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
     AuthServiceProvider,
-    ChatServiceProvider
+    ChatServiceProvider,
+    MessageServiceProvider
   ]
 })
 export class AppModule {}

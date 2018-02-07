@@ -19,10 +19,13 @@
 
   <div [ngSwitch]="view">
     <ion-list *ngSwitchCase="'chats'" no-lines>
-      <!--caso o botao chats for clicado-->
-      <ion-item>
-        Chats
-      </ion-item>
+      <button ion-item *ngFor="let chat of chats |async" (click)="onChatOpen(chat)">
+        <h2>{{chat.title}}</h2>
+        <p *ngIf="chat.lastMessage;else customMessage">{{chat.timestamp | date:'dd/MM/y H:mm'}} - {{chat.lastMessage}}</p><!-- se o campo lastMessage conter alguma coisa"-->
+        <ng-template #customMessage> <!-- caso nao tenha -->
+          <p>No messages</p>
+        </ng-template>
+      </button>
     </ion-list>
     
     <ion-list *ngSwitchCase="'users'"no-lines>
